@@ -1,0 +1,299 @@
+/* Reset default styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden; /* Hide overflow to prevent scrolling */
+  background-color: black; /* Set background color to black */
+  user-select: none; /* Disable text selection */
+}
+
+/* Define custom cursor */
+.custom-cursor {
+  cursor: url('./assets/cursor/pointer.png'), auto !important;
+}
+
+/* Video background styles */
+#video-background {
+  position: fixed; /* Fixed position to cover the entire viewport */
+  top: 0;
+  left: 0;
+  width: 100vw; /* 100% of viewport width */
+  height: 100vh; /* 100% of viewport height */
+  z-index: -1; /* Behind other content */
+}
+
+/* Scan lines effect */
+#video-background::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 0, rgba(255, 255, 255, 0.05) 1px, transparent 1px, transparent 2px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Video styles */
+#myVideo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the entire viewport while maintaining aspect ratio */
+  z-index: 0; /* Behind other content */
+}
+
+
+/* Positioning classes */
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+}
+
+/* Blurred box styles */
+#blurred-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%; /* Adjust width as needed */
+  height: 40%; /* Adjust height as needed */
+  background-color: rgba(255, 255, 255, 0); /* Transparent background */
+  border-radius: 20px; /* Rounded corners */
+  border: 2px solid rgba(255, 255, 255, 0); /* Dark border with transparency */
+  box-shadow: 0 0 10px rgba(100, 100, 100, 0.5); /* Slightly blurred shadow */
+  backdrop-filter: blur(5px); /* Apply blur effect */
+  z-index: 999; /* Above other content */
+  display: none; /* Initially hidden */
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Add padding */
+  text-align: center; /* Center text horizontally */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* Blurred box hover effect */
+#blurred-box:hover {
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent background on hover */
+}
+
+/* Links styles */
+.links {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.links a:hover {
+  color: #ff00ff;
+}
+
+/* Profile picture styles */
+#blurred-box img {
+  width: 80px; /* Adjust size as needed */
+  height: 80px; /* Adjust size as needed */
+  border-radius: 50%; /* Rounded corners */
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+/* Links styles */
+.links {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  z-index: 1001; /* Ensure icons are above the blurred box */
+}
+
+.links a {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+/* Link hover effect */
+.links a:hover {
+  color: #a9bbcd;
+}
+
+.links a i {
+  margin-right: 5px;
+  font-size: 24px;
+}
+
+/* Hover styles for links */
+.links a:hover {
+  text-decoration: underline;
+}
+
+/* User Description styles */
+.user-description {
+  margin-bottom: 20px; /* Adjust margin as needed */
+}
+
+.user-description p {
+  margin: 0; /* Remove default margin */
+  padding: 10px; /* Add padding */
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+/* User description hover effect */
+.user-description:hover p {
+  background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent background on hover */
+}
+
+#username {
+  font-family: 'Cherry Bomb One', cursive;
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  color: #ffffff;
+  margin: 0 0 0.8rem 0;
+  font-style: normal;
+}
+
+#avatar-frame {
+  position: absolute; /* Overlay on top of the profile picture */
+  top: 15%; /* Adjust to move it higher (e.g., reduce from 50% to 40%) */
+  left: 50%; /* Center horizontally within #blurred-box */
+  transform: translate(-50%, -50%); /* Adjust for proper centering */
+  width: 15% ; /* Slightly larger than the profile picture */
+  height: 20%; /* Slightly larger than the profile picture */
+  z-index: 1000; /* Ensure it is above the profile picture */
+  pointer-events: none; /* Prevent interaction with the frame */
+  display: none; /* Initially hidden */
+}
+
+.background-action a {
+  font-size: 0.85rem;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  padding: 6px 10px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.background-action a:hover {
+  background: rgba(255, 255, 255, 0.30);
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  body {
+    overflow: auto; /* Allow scroll if content exceeds viewport */
+  }
+
+  #blurred-box {
+    width: min(90vw, 420px);
+    height: auto;
+    max-height: 90vh;
+    padding: 18px 16px 20px;
+  }
+
+  #blurred-box img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
+  }
+
+  #avatar-frame {
+    top: 70px;
+    width: 96px;
+    height: 96px;
+  }
+
+  #username {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .user-description p {
+    padding: 8px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .links {
+    position: static;
+    transform: none;
+    margin-top: 12px;
+  }
+}
+
+@media (max-height: 700px) {
+  body {
+    overflow: auto;
+  }
+
+  #blurred-box {
+    width: min(70vw, 520px);
+    height: auto;
+    max-height: 85vh;
+  }
+
+  .links {
+    position: static;
+    transform: none;
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 1025px) {
+  #blurred-box {
+    width: clamp(280px, 22vw, 38px);
+    height: auto;
+    padding: 26px 24px 60px;
+    row-gap: 10px;
+  }
+
+  .user-description {
+    margin-bottom: 8px;
+  }
+
+  .user-description p {
+    line-height: 1.5;
+  }
+
+  .links {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 0;
+  }
+}
